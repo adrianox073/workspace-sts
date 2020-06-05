@@ -1,0 +1,17 @@
+package com.apps.ws.service;
+
+import org.springframework.security.core.userdetails.UserDetailsService;
+
+import com.apps.ws.shared.dto.UserDto;
+
+public interface UserService extends UserDetailsService {
+
+	UserDto createUser(UserDto userD);
+
+	UserDto getUser(String email);
+
+	UserDto findById(String id);
+
+	UserDto updateUser(String id, UserDto userdto);
+
+}

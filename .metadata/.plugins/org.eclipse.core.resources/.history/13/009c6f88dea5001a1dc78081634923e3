@@ -1,0 +1,5 @@
+package com.apps.ws.shared.dto;
+
+public class AdressDTO {
+
+}

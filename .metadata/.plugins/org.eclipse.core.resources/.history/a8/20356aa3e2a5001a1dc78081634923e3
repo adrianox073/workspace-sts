@@ -1,0 +1,16 @@
+package com.app.ws.io.entity;
+
+import java.io.Serializable;
+
+public class AddressEntity implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -925058612049955260L;
+	
+	
+	
+	
+
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+<fullyQualifiedTypeName name="org.springframework.http.MediaType"/>
+<fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+<fullyQualifiedTypeName name="javax.validation.constraints.Email"/>
+<fullyQualifiedTypeName name="org.springframework.beans.BeanUtils"/>
+<fullyQualifiedTypeName name="javax.persistence.Table"/>
+<fullyQualifiedTypeName name="antlr.Utils"/>
+<fullyQualifiedTypeName name="com.app.ws.shared.Utils"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.hibernate.eclipse.launch.ConsoleConfigurationLaunchConfigurationType">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/mobile-app-ws"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="4"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="mobile-app-ws"/>
+<stringAttribute key="org.hibernate.eclipse.launch.CFG_XML_FILE" value="\mobile-app-ws\src\main\resources\hibernate.cfg.xml"/>
+<stringAttribute key="org.hibernate.eclipse.launch.CONFIGURATION_FACTORY" value="CORE"/>
+<listAttribute key="org.hibernate.eclipse.launch.FILE_MAPPINGS"/>
+<stringAttribute key="org.hibernate.eclipse.launch.HIBERNATE_VERSION" value="5.0"/>
+<stringAttribute key="org.hibernate.eclipse.launch.PROPERTY_FILE" value="\mobile-app-ws\src\main\resources\hibernate.properties"/>
+<stringAttribute key="org.hibernate.eclipse.launch.USE_JPA_PROJECT_PROFILE" value="true"/>
+</launchConfiguration>
