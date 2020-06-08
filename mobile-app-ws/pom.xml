@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.app.ws</groupId>
 	<artifactId>mobile-app-ws</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+ 	
 	<packaging>war</packaging>
 	<name>mobile-app-ws</name>
 	<description>Demo project for Spring Boot</description>
@@ -64,7 +64,6 @@
 		<dependency>
 			<groupId>javax.persistence</groupId>
 			<artifactId>javax.persistence-api</artifactId>
-			<version>2.2</version>
 		</dependency>
 
 		<dependency>
@@ -81,7 +80,7 @@
 		<dependency>
 		  <groupId>org.modelmapper</groupId>
 		  <artifactId>modelmapper</artifactId>
-		  <version>2.3.0</version>
+		   <version>2.3.8</version>
 		</dependency>
 	</dependencies>
 
@@ -91,6 +90,16 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <!-- web.xml is not mandatory since JavaEE 5 -->
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <warName>${artifactId}</warName>
+                </configuration>
+            </plugin>
 		</plugins>
 	</build>
 

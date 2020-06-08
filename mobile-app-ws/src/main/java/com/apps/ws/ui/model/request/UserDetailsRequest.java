@@ -12,7 +12,7 @@ public class UserDetailsRequest {
 	private String firstName;
 
 	@NotNull(message = "Apellido no puede ser nulo")
-	private String lastname;
+	private String lastName;
 
 	@Email(message = "Debe indicar um email válido")
 	private String email;
@@ -31,12 +31,12 @@ public class UserDetailsRequest {
 		this.firstName = firstName;
 	}
 
-	public String getLastname() {
-		return lastname;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getEmail() {

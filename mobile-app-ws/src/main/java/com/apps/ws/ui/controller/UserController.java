@@ -51,7 +51,7 @@ public class UserController {
 
 		UserRest userReturn = new UserRest();
 
-		if (userDetail.getLastname() == null || userDetail.getLastname().isEmpty())
+		if (userDetail.getLastName() == null || userDetail.getLastName().isEmpty())
 			throw new UserServiceException(ErrorMessage.MISSING_REQUIRED_FIELD.getErrorMessage());
 
 		ModelMapper modelMapper = new ModelMapper();

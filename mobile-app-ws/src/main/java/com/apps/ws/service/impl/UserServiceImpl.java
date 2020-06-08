@@ -2,6 +2,7 @@ package com.apps.ws.service.impl;
 
 import java.util.ArrayList;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -12,9 +13,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.app.ws.io.entity.UserEntity;
+import com.apps.ws.exceptions.UserServiceException;
 import com.apps.ws.io.repositories.UserRepository;
 import com.apps.ws.service.UserService;
 import com.apps.ws.shared.Utils;
+import com.apps.ws.shared.dto.AddressDTO;
 import com.apps.ws.shared.dto.UserDTO;
 import com.apps.ws.ui.model.response.ErrorMessage;
 
@@ -35,18 +38,32 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserDTO createUser(UserDTO userDto) {
 
-		if (userRepository.findByEmail(userDto.getEmail()) != null) {
-			throw new RuntimeException("Registro ya existe");
+		if (userRepository.findByEmail(userDto.getEmail()) != null)
+			throw new UserServiceException("Record already exists");
+
+		for (int i = 0; i < userDto.getAddresses().size(); i++) {
+			AddressDTO address = userDto.getAddresses().get(i);
+			address.setUserDetails(userDto);
+			address.setAddressId(utils.getGeneratedAddressId(30));
+			userDto.getAddresses().set(i, address);
 		}
-		UserEntity userEntity = new UserEntity();
-		BeanUtils.copyProperties(userDto, userEntity);
 
+		// BeanUtils.copyProperties(user, userEntity);
+		ModelMapper modelMapper = new ModelMapper();
+		UserEntity userEntity = modelMapper.map(userDto, UserEntity.class);
+
+		String publicUserId = utils.getGeneratedUserId(30);
+		userEntity.setUserId(publicUserId);
 		userEntity.setEncryptedPassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
-		userEntity.setUserId(utils.getGeneratedUserId(30));
+		// userEntity.setEmailVerificationToken(utils.generateEmailVerificationToken(publicUserId));
 
-		UserEntity storedUserEntity = userRepository.save(userEntity);
-		UserDTO returnValue = new UserDTO();
-		BeanUtils.copyProperties(storedUserEntity, returnValue);
+		UserEntity storedUserDetails = userRepository.save(userEntity);
+
+		// BeanUtils.copyProperties(storedUserDetails, returnValue);
+		UserDTO returnValue = modelMapper.map(storedUserDetails, UserDTO.class);
+
+		// Send an email message to user to verify their email address
+		// amazonSES.verifyEmail(returnValue);
 
 		return returnValue;
 	}
@@ -98,7 +115,7 @@ public class UserServiceImpl implements UserService {
 			throw new UsernameNotFoundException(ErrorMessage.RECORD_NOT_FOUND.getErrorMessage());
 
 		userE.setFirstName(userDto.getFirstName());
-		userE.setLastname(userDto.getLastname());
+		userE.setLastname(userDto.getLastName());
 
 		userRepository.save(userE);
 

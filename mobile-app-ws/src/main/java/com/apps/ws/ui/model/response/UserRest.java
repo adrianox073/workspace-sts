@@ -4,7 +4,7 @@ public class UserRest {
 
 	private String firstName;
 
-	private String lastname;
+	private String lastName;
 
 	private String email;
 
@@ -19,11 +19,11 @@ public class UserRest {
 	}
 
 	public String getLastname() {
-		return lastname;
+		return lastName;
 	}
 
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getEmail() {

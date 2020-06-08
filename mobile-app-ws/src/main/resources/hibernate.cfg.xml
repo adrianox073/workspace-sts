@@ -6,7 +6,7 @@
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="hibernate.connection.password">quantum</property>
-        <property name="hibernate.connection.url">jdbc:Mysql://localhost:3306/photo_app</property>
+        <property name="hibernate.connection.url">jdbc:Mysql://localhost:3306/photo_app?serverTimezone=UTC</property>
         <property name="hibernate.connection.username">adriano</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     </session-factory>

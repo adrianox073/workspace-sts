@@ -9,7 +9,9 @@ import org.springframework.stereotype.Component;
 public class Utils {
 
 	private final Random RANDOM = new SecureRandom();
-	private final String ALPHABET = "0123456789ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz";
+	// private final String ALPHABET =
+	// "0123456789ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz";
+	private final String NUM = "0123456789";
 
 	public String getGeneratedUserId(int length) {
 		return generateString(length);
@@ -23,7 +25,7 @@ public class Utils {
 		StringBuilder returnValue = new StringBuilder(length);
 
 		for (int i = 0; i < length; i++) {
-			returnValue.append(ALPHABET.charAt(RANDOM.nextInt(ALPHABET.length())));
+			returnValue.append(NUM.charAt(RANDOM.nextInt(NUM.length())));
 		}
 		return new String(returnValue);
 

@@ -25,7 +25,7 @@ public class UserEntity implements Serializable {
 	private String firstName;
 
 	@Column(nullable = false, length = 50)
-	private String lastname;
+	private String lastName;
 
 	@Column(nullable = false, length = 120)
 	private String email;
@@ -45,8 +45,7 @@ public class UserEntity implements Serializable {
 	private Boolean emailVerificationStatus = false;
 
 	@OneToMany(mappedBy = "userDetails", cascade = CascadeType.ALL)
-
-	private List<AddressEntity> address;
+	private List<AddressEntity> addresses;
 
 	public long getId() {
 		return id;
@@ -65,11 +64,11 @@ public class UserEntity implements Serializable {
 	}
 
 	public String getLastname() {
-		return lastname;
+		return lastName;
 	}
 
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setLastname(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getEmail() {
@@ -120,12 +119,12 @@ public class UserEntity implements Serializable {
 		this.emailVerificationStatus = emailVerificationStatus;
 	}
 
-	public List<AddressEntity> getAddress() {
-		return address;
+	public List<AddressEntity> getAddresses() {
+		return addresses;
 	}
 
-	public void setAddress(List<AddressEntity> address) {
-		this.address = address;
+	public void setAddresses(List<AddressEntity> addresses) {
+		this.addresses = addresses;
 	}
 
 }
